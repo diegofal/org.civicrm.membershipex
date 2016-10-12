@@ -1,0 +1,37 @@
+<div class="crm-accordion-wrapper collapsed">
+  <div class="crm-accordion-header">
+    Filters
+  </div>
+  <div class="crm-accordion-body">
+     <div class="crm-block crm-form-block crm-form-title-here-form-block">
+		<table class="form-layout">
+		<tbody>
+			<tr>
+				<td class="font-size12pt" colspan="2">
+					<label for="sort_name">Start date</label><br>
+				 	<input crm-ui-datepicker="{time: false, date: 'dd-mm-yy'}" ng-model="startDate" ng-change="getList()"/>
+				</td>
+				<td class="font-size12pt" colspan="2">
+					<label for="sort_name">End Date</label><br>
+				 	<input crm-ui-datepicker="{time: false, date: 'dd-mm-yy'}" ng-model="endDate" ng-change="getList()"/>
+				</td>
+			</tr>
+		</tbody></table>
+     </div>
+   </div>
+</div>
+
+<table class="selector row-highlight" style="position: relative;">
+	<thead class="sticky">
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Name</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr id="rowid1" data-ng-repeat="x in results" ng-class-odd="'odd-row'" ng-class-event="'even-row'">
+			<td>{{ x.id }}</td>
+			<td>{{ x['contact_id.display_name'] }}</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<extension key="org.civicrm.membershipex" type="module">
+  <file>membershipex</file>
+  <name>Angular Members Extension</name>
+  <description>Angular expample to show members</description>
+  <license>AGPL-3.0</license>
+  <maintainer>
+    <author>Diego Falciola</author>
+    <email>diego.falciola@gmail.com</email>
+  </maintainer>
+  <releaseDate>2016-10-12</releaseDate>
+  <version>1.0</version>
+  <develStage>alpha</develStage>
+  <compatibility>
+    <ver>4.7</ver>
+  </compatibility>
+  <comments>Task 2: CiviCRM</comments>
+  <civix>
+    <namespace>CRM/Angularex</namespace>
+  </civix>
+</extension>
