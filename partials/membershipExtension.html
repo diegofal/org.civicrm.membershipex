@@ -29,9 +29,9 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr id="rowid1" data-ng-repeat="x in results" ng-class-odd="'odd-row'" ng-class-event="'even-row'">
-			<td>{{ x.id }}</td>
-			<td>{{ x['contact_id.display_name'] }}</td>
+		<tr id="rowid1" data-ng-repeat="member in results" ng-class-odd="'odd-row'" ng-class-event="'even-row'">
+			<td>{{ member.id }}</td>
+			<td>{{ member.['contact_id.display_name'] }}</td>
 		</tr>
 	</tbody>
 </table>

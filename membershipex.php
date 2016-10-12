@@ -116,8 +116,15 @@ function membershipex_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
  */
 function membershipex_civicrm_angularModules(&$angularModule) {
 	$angularModule['membershipExtension'] = array(
-		'ext'      => 'org.civicrm.membershipex',
-		'js'       => array('js/*.js'),
+		'ext' => 'org.civicrm.membershipex',
+		//'js'       => array('js/*.js'),
+		'js' => array(
+			'js/membershipExtension.js',
+			'js/membershipExtensionServices.js',
+			'js/membershipExtensionCtrl.js',
+			'js/membershipExtensionRoutes.js',
+
+		),
 		'partials' => array('partials'),
 	);
 }
