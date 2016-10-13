@@ -128,3 +128,7 @@ function membershipex_civicrm_angularModules(&$angularModule) {
 		'partials' => array('partials'),
 	);
 }
+
+function membershipex_civicrm_navigationMenu(&$params) {
+	_membershipex_civicrm_navigationMenu($params);
+}

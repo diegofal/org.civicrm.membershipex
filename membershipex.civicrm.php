@@ -295,3 +295,35 @@ function _membershipex_civicrm_civicrm_alterSettingsFolders(&$metaDataFolders = 
 		$metaDataFolders[] = $settingsDir;
 	}
 }
+
+function _membershipex_civicrm_navigationMenu(&$params) {
+
+	// Check that our item doesn't already exist
+	$menu_item_search = array('url' => 'civicrm/a/#/membersExtension');
+	$menu_items       = array();
+	CRM_Core_BAO_Navigation::retrieve($menu_item_search, $menu_items);
+
+	if (!empty($menu_items)) {
+		return;
+	}
+
+	$navId = CRM_Core_DAO::singleValueQuery("SELECT max(id) FROM civicrm_navigation");
+	if (is_integer($navId)) {
+		$navId++;
+	}
+	// Find the Report menu
+	$membershipId                       = CRM_Core_DAO::getFieldValue('CRM_Core_DAO_Navigation', 'Memberships', 'id', 'name');
+	$params[$membershipId]['child'][$navId] = array(
+		'attributes'  => array(
+			'label'      => 'Memberships Angular List',
+			'name'       => 'Memberships Angular List',
+			'url'        => 'civicrm/a/#/membersExtension',
+			'permission' => 'access CiviReport',
+			'operator'   => 'OR',
+			'separator'  => 1,
+			'parentID'   => $membershipId,
+			'navID'      => $navId,
+			'active'     => 1,
+		)
+	);
+}
