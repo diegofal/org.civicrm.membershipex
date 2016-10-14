@@ -18,23 +18,23 @@ exports.config = {
   },
 
   //base URL for drupal
-  //eg: baseUrl: 'http://localhost/drupalTask/',
-
   baseUrl: 'http://d7-master.dev/',
+
   params: {
     login: {
-      user: '', //drupal username
-      password: '' //drupal password
-    }
+      user: 'admin', //drupal username
+      password: 'admin' //drupal password
+    },
+    civiUrl: 'civicrm/',
+    extensionUrl: 'civicrm/a/#/membersExtension'
   },
 
-  //login for site ::https://github.com/angular/protractor/blob/master/spec/withLoginConf.js
+
   onPrepare: function() {
-   //console.log(this.params);
-    //var ptor = protractor.getInstance();
-    browser.driver.get('http://d7-master.dev/');
-    browser.driver.findElement(by.id('edit-name')).sendKeys('admin');
-    browser.driver.findElement(by.id('edit-pass')).sendKeys('admin');
+
+    browser.driver.get(browser.baseUrl);
+    browser.driver.findElement(by.id('edit-name')).sendKeys(browser.params.login.user);
+    browser.driver.findElement(by.id('edit-pass')).sendKeys(browser.params.login.password);
     browser.driver.findElement(by.id('edit-submit')).click();
   }
 };
