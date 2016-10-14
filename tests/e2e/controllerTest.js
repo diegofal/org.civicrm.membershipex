@@ -17,10 +17,15 @@ describe("Test Memberships Angular Extension", function () {
     it ("should exists the table in the extension", function() {
 
       browser.driver.get('http://d7-master.dev/civicrm/a/#/membersExtension');
-      var membershipTable = element(by.xpath('//table[@membershiptable]'));
+      browser.wait(function(){
+        return element(by.id('membershipTable')).isPresent
+      });
+
+      // esto ahora anda
+      var membershipTable = element(by.css('table[membershiptable]'));
       
 
-      console.log(membershipTable.getTagName());
+
       expect(browser.isElementPresent(membershipTable)).toBe(true);
 
     });
