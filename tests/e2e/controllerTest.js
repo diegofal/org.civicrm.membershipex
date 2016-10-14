@@ -1,26 +1,34 @@
 describe("Test Memberships Angular Extension", function () {
-  var baseUrl = 'http://d7-master.dev/civicrm/';
-  var extensionUrl = baseUrl + 'a/#/membersExtension';
 
   browser.ignoreSynchronization = true;
 
-  beforeEach(function(){
-    browser.driver.get(extensionUrl);
-  });
-  
-  it ("should exist the extension in the menu", function() {
-    var membershipExtensionElement = element(by.xpath('.//*[.="Memberships Angular List"]'));
-    expect(browser.isElementPresent(membershipExtensionElement)).toBe(true);
+  describe("Memberships List Menu", function () {
 
-  });
+    it ("should exists the extension in the menu", function() {
 
-  it ("should exist the table in the extension", function() {
-    membershipTablePresent = browser.wait(function(){
-      return element(by.id('membershipTable')).isPresent();
+      browser.driver.get(browser.baseUrl + browser.params.civiUrl);
+
+      var membershipExtensionElement = element(by.xpath('.//*[.="Memberships Angular List"]'));
+
+      expect(browser.isElementPresent(membershipExtensionElement)).toBe(true);
+
     });
+  });
 
-    expect(membershipTablePresent).toBe(true);
 
+  describe("Memberships Data table", function () {
+    
+    it ("should exists the table in the extension", function() {
+
+      browser.driver.get(browser.baseUrl + browser.params.extensionUrl);
+
+      membershipTablePresent = browser.wait(function(){
+        return element(by.id('membershipTable')).isPresent();
+      });
+
+      expect(membershipTablePresent).toBe(true);
+
+    });
   });
 
 });
